@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@cucumber/cucumber": "^10.2.1",
+    "expect": "^29.7.0",
+    "puppeteer": "^21.7.0"
+  }
+}
