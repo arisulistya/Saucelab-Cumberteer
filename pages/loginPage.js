@@ -1,5 +1,6 @@
 const { default: expect } = require("expect");
 const loginLocator = require("./loginLocator");
+const { wait } = require("../puppeteer.config");
 
 class LoginPage {
     constructor(page) {
@@ -8,31 +9,32 @@ class LoginPage {
 
     async navigateTo(loginUrl) {
         await this.page.goto(loginUrl);
-        await this.page.waitForTimeout(3000);
+        await this.page.waitForTimeout(wait.medium);
     }
 
     async loginToApp(username, password) {
         await this.page.type(loginLocator.username, username);
-        // await this.page.waitForTimeout(2000);
+        // await this.page.waitForTimeout(wait.short);
         await this.page.type(loginLocator.password, password);
-        // await this.page.waitForTimeout(2000);
+        // await this.page.waitForTimeout(wait.short);
         await this.page.click(loginLocator.loginButton);
-        // await this.page.waitForTimeout(2000);
+        // await this.page.waitForTimeout(wait.short);
     }
 
     async verifyDashboardUrl(dashboardUrl) {
-        await this.page.waitForTimeout(3000);
+        await this.page.waitForTimeout(wait.short);
         const url = await this.page.url(dashboardUrl);
-        expect(url).toEqual("https://m.internmatch.io/"+dashboardUrl);
-        await this.page.waitForTimeout(3000);
+        expect(url).toEqual(dashboardUrl);
+        await this.page.waitForTimeout(wait.short);
     }
 
-    async verifyCredentials() {
-        await this.page.waitForSelector('#app > div > header > div > p');
-        const text = await this.page.$eval('#app > div > header > div > p', el => el.textContent);
-        expect(text).toEqual("Welcome back, Alvianto!");
-
+    async verifyErrorLogin() {
+        await this.page.waitForTimeout(wait.short);
+        const errMessage = await this.page.$(loginLocator.errMessage);
+        expect(errMessage).toBeTruthy();
+        await this.page.waitForTimeout(wait.short);
     }
+
 }
 
 module.exports = LoginPage;

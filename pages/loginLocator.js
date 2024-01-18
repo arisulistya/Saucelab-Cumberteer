@@ -1,5 +1,6 @@
 module.exports = {
-    username: '#username',
+    username: 'input[data-test="username"]',
     password: '#password',
-    loginButton: 'button[type="submit"]',
+    loginButton: '#login-button',
+    errMessage: 'h3[data-test="error"]',
 }

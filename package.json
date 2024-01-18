@@ -1,7 +1,12 @@
 {
   "dependencies": {
     "@cucumber/cucumber": "^10.2.1",
+    "dotenv": "^16.3.1",
     "expect": "^29.7.0",
     "puppeteer": "^21.7.0"
+  },
+  "scripts": {
+    "test:stagging": "NODE_ENV=test cucumber-js features/login.feature",
+    "test:prod": "NODE_ENV=prod cucumber-js features/login.feature"
   }
 }

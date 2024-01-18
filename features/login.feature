@@ -1,11 +1,11 @@
 Feature: Login to App
 
-Scenario: Success login as an User
-    Given I am on the "<loginUrl>" page
-    When I login with "<username>" and "<password>"
-    Then I should redirected to "<dashboardUrl>"
-    Then I should see correct credentials on the dashboard page
+Scenario: Login as valid user
+    Given I am on the Login page
+    When I input valid user credentials and click login
+    Then I should see correct dashboard url
 
-Examples:
-    | loginUrl                  | username               | password  | dashboardUrl |
-    | https://m.internmatch.io/ | alvianto.w@gada.io     | Eaglesp01.| home         |
+Scenario: Login as invalid user
+    Given I am on the Login page
+    When I input invalid user credentials and click login
+    Then I should see validation message

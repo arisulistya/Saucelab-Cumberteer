@@ -1,5 +1,11 @@
 module.exports = {
-    // Additional Puppeteer launch options
+    // Additional Puppeteer config
+    wait: {
+      short: 2000,
+      medium: 5000,
+      long: 10000,
+    },
+
     launchOptions: {
       headless: false, // Set to false for non-headless mode (GUI visible)
       slowMo: 0, // Slows down Puppeteer operations by 100 milliseconds
