@@ -9,7 +9,7 @@ setDefaultTimeout(30000);
 
 Before(async function () {
     browser = await puppeteer.launch(puppeteerConfig.launchOptions);
-    page = await browser.newPage();
+    page = (await browser.pages()) [0];
 
     this.browser = browser;
     this.page = page;
