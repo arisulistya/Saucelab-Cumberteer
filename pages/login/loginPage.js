@@ -1,6 +1,6 @@
 const { default: expect } = require("expect");
 const loginLocator = require("./loginLocator");
-const { wait } = require("../puppeteer.config");
+const { wait } = require("../../puppeteer.config");
 
 class LoginPage {
     constructor(page) {

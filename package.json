@@ -6,7 +6,7 @@
     "puppeteer": "^21.7.0"
   },
   "scripts": {
-    "test:stagging": "NODE_ENV=test cucumber-js features/login.feature",
+    "test:stagging": "NODE_ENV=test cucumber-js features/addProduct.feature",
     "test:prod": "NODE_ENV=prod cucumber-js features/login.feature"
   }
 }
